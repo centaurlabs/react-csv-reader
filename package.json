@@ -10,8 +10,8 @@
   "license": "MIT",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "webpack -p",
-    "prerelease": "webpack -p",
+    "build": "webpack --mode=development",
+    "prerelease": "webpack --define-process-env-node-env production",
     "release": "release-it",
     "test": "jest --rootDir src",
     "watch": "webpack --watch --progress",
@@ -55,8 +55,8 @@
     "source-map-loader": "^0.2.4",
     "ts-loader": "^6.2.1",
     "typescript": "^3.8.3",
-    "webpack": "^4.42.0",
-    "webpack-cli": "^3.3.11"
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
   },
   "peerDependencies": {
     "prop-types": "^15.7.2",

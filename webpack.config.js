@@ -2,15 +2,13 @@ var path = require('path')
 
 module.exports = {
   devtool: 'source-map',
-  entry: './src/index.tsx',
-  resolve: {
-    extensions: ['.ts', '.tsx'],
-  },
+  entry: './src/index.jsx',
   output: {
     filename: 'react-csv-reader.js',
-    path: path.resolve(__dirname, 'dist'),
-    library: 'CSVReader',
-    libraryTarget: 'commonjs2',
+    library: {
+      name: 'CSVReader',
+      type: 'commonjs2',
+    },
   },
   module: {
     rules: [
@@ -24,15 +22,6 @@ module.exports = {
             plugins: ['@babel/plugin-proposal-class-properties'],
           },
         },
-      },
-      {
-        test: /\.ts(x?)$/,
-        exclude: /node_modules/,
-        use: [
-          {
-            loader: 'ts-loader',
-          },
-        ],
       },
       {
         enforce: 'pre',
